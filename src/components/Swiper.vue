@@ -1,6 +1,11 @@
 <template>
   <swiper class="swiper" :options="swiperOption">
-    <swiper-slide>Slide 1</swiper-slide>
+    <swiper-slide v-for="listItem in getList" class="post" v-bind:key="listItem.item">
+        <img :src="`https://image.tmdb.org/t/p/w500/${listItem.poster_path}`">
+          
+        <router-link v-bind:to="`detail/${listItem.id}`"><p>{{ listItem.title || listItem.name }}</p></router-link>
+    </swiper-slide>
+    <!-- <swiper-slide>Slide 1</swiper-slide>
     <swiper-slide>Slide 2</swiper-slide>
     <swiper-slide>Slide 3</swiper-slide>
     <swiper-slide>Slide 4</swiper-slide>
@@ -9,7 +14,7 @@
     <swiper-slide>Slide 7</swiper-slide>
     <swiper-slide>Slide 8</swiper-slide>
     <swiper-slide>Slide 9</swiper-slide>
-    <swiper-slide>Slide 10</swiper-slide>
+    <swiper-slide>Slide 10</swiper-slide> -->
     <div class="swiper-pagination" slot="pagination"></div>
     <div class="swiper-button-prev" slot="button-prev"></div>
     <div class="swiper-button-next" slot="button-next"></div>
@@ -40,8 +45,24 @@
                         nextEl: '.swiper-button-next', 
                         prevEl: '.swiper-button-prev' 
                     } 
-                }
+                },
+                list : []
             }
+        },
+        created() {
+            console.log("this   ", this);
+            this.$store.dispatch("FETCH_DAILY");
+            this.list = this.$store.state.dailys;
+            console.log(this.list);
+        },
+        computed : {
+            getList(){
+                let result;
+                result = this.$store.state.dailys.results;
+                console.log("result            ",  result);
+                return result;
+            }
+            
         }
     }
 </script>

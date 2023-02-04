@@ -30,6 +30,5 @@ export const router = new VueRouter({ // 라우터의 정보들을 관리하는 
             component : DetailView,
             name : 'DetailView'
         },
-    	
     ]
 });

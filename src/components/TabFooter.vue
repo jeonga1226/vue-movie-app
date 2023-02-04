@@ -3,8 +3,8 @@
 		<div class="menuWrap">
 			<router-link to="/home">홈</router-link>
     		<router-link to="/category">카테고리</router-link>
+			<router-link to="/Search">검색</router-link>
     		<router-link to="/my">MY</router-link>
-    		<router-link to="/swiper">Swiper</router-link>
 		</div>
 	</footer>
 </template>

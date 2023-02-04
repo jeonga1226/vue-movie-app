@@ -10,6 +10,17 @@ const config = {
     
 }
 
+// cors 우회
+function corsAnywhere(url) {
+    return axios({
+        method : "GET",
+        url : `https://cors-anywhere.herokuapp.com/${url}`,
+        header : {
+            'APIKey' : ""
+        }
+    });
+}
+
 // 2. API 함수들을 정리 
 function fetchDailyAllList() {
     // https://api.themoviedb.org/3/trending/all/day?api_key=5c641d77de2e4b7554d8ebbf14934986&language=ko-KR
@@ -21,13 +32,35 @@ function fetchWeeklyList() {
 function fetchDetailInfo(id) {
     return axios.get(`${config.baseUrl}movie/${id}?api_key=${config.key}&language=${config.lang}`);
 }
-function fetchSearchInfo() {
-    return axios.get(`${config.baseUrl}search/movie?api_key=${config.key}&query=whiplash&language=de-DE&region=DE`)
+function fetchSearchMovieInfo(str) {
+    return axios.get(`${config.baseUrl}search/movie?api_key=${config.key}&query=${str}&language=ko-KR`)
+}
+function fetchSearchKeywordInfo(str) {
+    return axios.get(`${config.baseUrl}search/keyword?api_key=${config.key}&query=${str}&language=ko-KR`)
+}
+function fetchSearchTvInfo(str) {
+    return axios.get(`${config.baseUrl}search/movie?api_key=${config.key}&query=${str}&language=ko-KR`)
+}
+function fetchWeekTrendingList(type) {
+    return axios.get(`${config.baseUrl}/trending/${type}/week?api_key=${config.key}&language=ko-KR`)
+}
+function fetchPopularList() {
+    return axios.get(`${config.baseUrl}/movie/popular?api_key=${config.key}&language=ko-KR&page=2`)
+}
+function fetchMovieVideo(str) {
+    return axios.get(`${config.baseUrl}/movie/${str}/videos?api_key=${config.key}&language=ko-KR&page=2`)
 }
 
 export {
+    corsAnywhere,
+
     fetchDailyAllList,
     fetchWeeklyList,
     fetchDetailInfo,
-    fetchSearchInfo,
+    fetchSearchMovieInfo,
+    fetchSearchKeywordInfo,
+    fetchSearchTvInfo,
+    fetchWeekTrendingList,
+    fetchPopularList,
+    fetchMovieVideo,
 }
