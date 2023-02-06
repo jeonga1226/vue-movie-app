@@ -41,13 +41,13 @@
             </div>
             
             <div class="search-list-wrap" v-if="searchfinish===true">
-                <li v-for="listItem in searchs" :key="listItem.item">
+                <div class="inner-box" v-for="listItem in searchs" :key="listItem.item">
                     <div class="list-item">
                         <img :src="`https://image.tmdb.org/t/p/w500/${listItem.poster_path}`" class="lft-img">
                             {{ listItem.title }}                    
                     </div>
-                    
-                </li>
+                        
+                </div>
             </div>
         </div>
     </div>
