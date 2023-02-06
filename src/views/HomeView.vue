@@ -1,5 +1,6 @@
 <template>
     <div class="home-section">
+        <tab-header></tab-header>
         <daily-list></daily-list>
         <weekly-list></weekly-list>
         <romance-list></romance-list>
@@ -7,15 +8,22 @@
 </template>
   
 <script>
+import TabHeader from '../components/TabHeader.vue'
 import RomanceList from '../components/home/RomanceList.vue'
 import DailyList from '../components/home/DailyList.vue'
 import WeeklyList from '../components/home/WeeklyList.vue'
 
 export default {
     components: {
+      TabHeader,
       DailyList,
       WeeklyList,
       RomanceList,
+    },
+    created() {
+        console.log("this.$logoFlag     >   ", this.$logoFlag );
+        this.$logoFlag = true;
+        console.log("this.$logoFlag     >   ", this.$logoFlag );
     }
 }
 </script>

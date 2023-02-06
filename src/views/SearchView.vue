@@ -1,7 +1,7 @@
 <template>
     <div class="section">
         <div class="search-box">
-            <label for="search" type="button" tabindex="0" class="btn-search"></label>
+            <label for="search" type="button" tabindex="0" class="btn-search">돋보기</label>
             <input type="text" id="inputValue" name="search" placeholder="제목, 장르, 배우로 찾아보세요" class="search-inpt" v-on:input="getSearchList">
         </div>
         <!-- <input type="text" id="inputValue" placeholder="제목, 장르, 배우로 찾아보세요." v-on:input="getSearchList"> -->
@@ -153,16 +153,25 @@
     }
     .search-box .btn-search {
         background-image: url("../assets/img/icon-search.png");
-        background-size: 10px auto;
+        background-size: 25px auto;
+        color : transparent;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 9px;
+        z-index: 10;
+        margin-top: 19px;
     }
     .search-box input {
         margin-top: 15px;
         height: 35px;
-        width: 100%;
+        width: 90%;
         background: transparent;
         border-color : #000;
         border-bottom : 0.2rem solid #fff;
         color: #fff;
+        padding: 0px 30px;
     }
     .search-box input::after{
         border-bottom: 0.2rem solid #fff;

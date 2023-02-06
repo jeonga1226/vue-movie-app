@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <tab-header></tab-header>
+    
     <router-view></router-view>
     <tab-footer></tab-footer>
   </div>
 </template>
 
 <script>
-import TabHeader from './components/TabHeader.vue'
+// import TabHeader from './components/TabHeader.vue'
 import TabFooter from './components/TabFooter.vue'
 
 export default {
   name: 'App',
   components: {
-    TabHeader,
+    // TabHeader,
     TabFooter
   }
 }

@@ -12,13 +12,7 @@ const config = {
 
 // cors 우회
 function corsAnywhere(url) {
-    return axios({
-        method : "GET",
-        url : `https://cors-anywhere.herokuapp.com/${url}`,
-        header : {
-            'APIKey' : ""
-        }
-    });
+    return axios(`https://cors-anywhere.herokuapp.com/${url}`);
 }
 
 // 2. API 함수들을 정리 
@@ -42,13 +36,13 @@ function fetchSearchTvInfo(str) {
     return axios.get(`${config.baseUrl}search/movie?api_key=${config.key}&query=${str}&language=ko-KR`)
 }
 function fetchWeekTrendingList(type) {
-    return axios.get(`${config.baseUrl}/trending/${type}/week?api_key=${config.key}&language=ko-KR`)
+    return axios.get(`${config.baseUrl}trending/${type}/week?api_key=${config.key}&language=ko-KR`)
 }
 function fetchPopularList() {
-    return axios.get(`${config.baseUrl}/movie/popular?api_key=${config.key}&language=ko-KR&page=2`)
+    return axios.get(`${config.baseUrl}movie/popular?api_key=${config.key}&language=ko-KR&page=2`)
 }
 function fetchMovieVideo(str) {
-    return axios.get(`${config.baseUrl}/movie/${str}/videos?api_key=${config.key}&language=ko-KR&page=2`)
+    return axios.get(`${config.baseUrl}movie/${str}/videos?api_key=${config.key}&language=ko-KR`)
 }
 
 export {
